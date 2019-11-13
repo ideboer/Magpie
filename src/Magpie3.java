@@ -27,7 +27,7 @@ public class Magpie3 {
 	 */
 	public String getResponse(String statement) {
 		String response = "";
-		if (statement.length() == 0) {
+		if (statement.trim().length() == 0) {
 			response = "Say something, please.";
 		} else if (findKeyword(statement, "no") >= 0) {
 			response = "Why so negative?";
@@ -36,6 +36,17 @@ public class Magpie3 {
 				|| findKeyword(statement, "sister") >= 0
 				|| findKeyword(statement, "brother") >= 0) {
 			response = "Tell me more about your family.";
+		} else if (findKeyword(statement, "dog") >= 0
+				|| findKeyword(statement, "cat") >= 0) {
+			response = "Tell me more about your pets.";
+		} else if (findKeyword(statement, "Padjen") >= 0) {
+			response = "He sounds like a good teacher.";
+		} else if (findKeyword(statement, "yes") >= 0) {
+			response = "I'm glad you think so!";
+		} else if (findKeyword(statement, "Hello") >= 0) {
+			response = "How are you today?";
+		} else if (findKeyword(statement, "Supercalifragilisticexpialidocious") >= 0) {
+			response = "Congrats! You discovered it.";
 		} else {
 			response = getRandomResponse();
 		}
