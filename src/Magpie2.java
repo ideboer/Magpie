@@ -38,6 +38,19 @@ public class Magpie2 {
 				|| statement.indexOf("sister") >= 0
 				|| statement.indexOf("brother") >= 0) {
 			response = "Tell me more about your family.";
+		} else if (statement.indexOf("dog") >= 0
+				|| statement.indexOf("cat") >= 0) {
+			response = "Tell me more about your pets.";
+		} else if (statement.indexOf("Padjen") >= 0) {
+			response = "He sounds like a good teacher.";
+		} else if (statement.trim().length() < 1) {
+			response = "Say something, please.";
+		} else if (statement.indexOf("yes") >= 0) {
+			response = "I'm glad you think so!";
+		} else if (statement.indexOf("Hello") >= 0) {
+			response = "How are you today?";
+		} else if (statement.indexOf("Supercalifragilisticexpialidocious") >= 0) {
+			response = "Congrats! You discovered it.";
 		} else {
 			response = getRandomResponse();
 		}
@@ -50,7 +63,7 @@ public class Magpie2 {
 	 * @return a non-committal string
 	 */
 	private String getRandomResponse() {
-		final int NUMBER_OF_RESPONSES = 4;
+		final int NUMBER_OF_RESPONSES = 6;
 		double r = Math.random();
 		int whichResponse = (int) (r * NUMBER_OF_RESPONSES);
 		String response = "";
@@ -63,7 +76,12 @@ public class Magpie2 {
 			response = "Do you really think so?";
 		} else if (whichResponse == 3) {
 			response = "You don't say.";
+		} else if (whichResponse == 4) {
+			response = "Is that so?";
+		} else if (whichResponse == 5) {
+			response = "How fascinating!";
 		}
+
 
 		return response;
 	}
